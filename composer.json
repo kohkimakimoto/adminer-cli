@@ -15,8 +15,5 @@
   },
   "require-dev": {
   },
-  "autoload": {
-    "psr-0": { "Altax\\": "src/"}
-  },
   "bin": ["adminer-server"]
 }
