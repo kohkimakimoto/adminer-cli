@@ -1,0 +1,52 @@
+#!/usr/bin/env php
+<?php
+
+if (PHP_SAPI !== 'cli') {
+    echo 'Warning: adminer-server should be invoked via the CLI version of PHP, not the '.PHP_SAPI.' SAPI'.PHP_EOL;
+}
+
+error_reporting(-1);
+
+$options = getopt("hp:H:v:");
+$argv = $_SERVER['argv'];
+if (isset($options['h'])) {
+    echo <<<EOF
+Usage: adminer-server [-p port] [-H host] [-v adminer_version]
+
+Run adminer on the PHP built-in server for development
+
+Options:
+  -p    Listen port
+  -H    Listen host
+  -v    Specify the adminer version.
+
+
+EOF;
+    exit(0);
+}
+
+$port = "8080";
+if (isset($options['p'])) {
+    $port = $options['p'];
+}
+
+$host = "localhost";
+if (isset($options['H'])) {
+    $host = $options['H'];
+}
+
+$version = "4.3.1";
+if (isset($options['v'])) {
+    $version = $options['v'];
+}
+
+$docRoot = __DIR__."/adminer/$version";
+$script = "$docRoot/adminer-$version.php";
+
+if (!file_exists($script)) {
+    echo "unsupported version: $version\n";
+    exit(1);
+}
+echo "Adminer runs on http://{$host}:{$port}\n";
+
+passthru(PHP_BINARY." -d variables_order=EGPCS -S {$host}:{$port} -t{$docRoot} {$script}");

@@ -1,0 +1,27 @@
+{
+  "name": "kohkimakimoto/adminer-server",
+  "description": "Run adminer on the PHP built-in server for development",
+  "keywords": ["adminer"],
+  "homepage": "https://github.com/kohkimakimoto/adminer-server",
+  "license": "Apache-2.0",
+  "authors": [
+    {
+      "name": "Kohki Makimoto",
+      "email": "kohki.makimoto@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.4.0"
+  },
+  "require-dev": {
+  },
+  "autoload": {
+    "psr-0": { "Altax\\": "src/"}
+  },
+  "extra": {
+      "branch-alias": {
+          "dev-master": "3.0.x-dev"
+      }
+  },
+  "bin": ["adminer-server"]
+}

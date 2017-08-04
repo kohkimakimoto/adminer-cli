@@ -1,0 +1,10 @@
+.DS_Store
+Thumbs.db
+.tags*
+._*
+*.iml
+/vendor
+.vagrant
+.vscode/
+
+!.gitkeep
