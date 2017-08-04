@@ -7,7 +7,7 @@ Run adminer on the PHP built-in server for development
 Use composer installation.
 
 ```
-composer require kohkimakimoto/adminer-server
+$ composer require --dev kohkimakimoto/adminer-server
 ```
 
 ## Usage
