@@ -18,10 +18,5 @@
   "autoload": {
     "psr-0": { "Altax\\": "src/"}
   },
-  "extra": {
-      "branch-alias": {
-          "dev-master": "3.0.x-dev"
-      }
-  },
   "bin": ["adminer-server"]
 }
