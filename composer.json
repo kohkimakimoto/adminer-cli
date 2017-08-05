@@ -1,8 +1,8 @@
 {
-  "name": "kohkimakimoto/adminer-server",
-  "description": "Run adminer on the PHP built-in server for development",
+  "name": "kohkimakimoto/adminer-cli",
+  "description": "Command line interface to run adminer on the PHP built-in server",
   "keywords": ["adminer"],
-  "homepage": "https://github.com/kohkimakimoto/adminer-server",
+  "homepage": "https://github.com/kohkimakimoto/adminer-cli",
   "license": "Apache-2.0",
   "authors": [
     {
@@ -15,5 +15,5 @@
   },
   "require-dev": {
   },
-  "bin": ["adminer-server"]
+  "bin": ["bin/adminer"]
 }

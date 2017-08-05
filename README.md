@@ -1,4 +1,4 @@
-# Adminer Server
+# Adminer CLI
 
 Run adminer on the PHP built-in server for development
 
@@ -7,13 +7,13 @@ Run adminer on the PHP built-in server for development
 Use composer installation.
 
 ```
-$ composer require --dev kohkimakimoto/adminer-server
+$ composer require --dev kohkimakimoto/adminer-cli
 ```
 
 ## Usage
 
 ```
-$ php vendor/bin/adminer-server
+$ php vendor/bin/adminer
 ```
 
 Open URL `http://localhost:8080`.
@@ -21,9 +21,9 @@ Open URL `http://localhost:8080`.
 ## Options
 
 ```
-Usage: adminer-server [-p port] [-H host] [-v adminer_version]
+Usage: adminer [-p port] [-H host] [-v adminer_version]
 
-Run adminer on the PHP built-in server for development
+Command line interface to run adminer on the PHP built-in server
 
 Options:
   -p    Listen port

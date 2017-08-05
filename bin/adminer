@@ -2,7 +2,7 @@
 <?php
 
 if (PHP_SAPI !== 'cli') {
-    echo 'Warning: adminer-server should be invoked via the CLI version of PHP, not the '.PHP_SAPI.' SAPI'.PHP_EOL;
+    echo 'Warning: adminer-cli should be invoked via the CLI version of PHP, not the '.PHP_SAPI.' SAPI'.PHP_EOL;
 }
 
 error_reporting(-1);
@@ -11,9 +11,9 @@ $options = getopt("hp:H:v:");
 $argv = $_SERVER['argv'];
 if (isset($options['h'])) {
     echo <<<EOF
-Usage: adminer-server [-p port] [-H host] [-v adminer_version]
+Usage: adminer [-p port] [-H host] [-v adminer_version]
 
-Run adminer on the PHP built-in server for development
+Command line interface to run adminer on the PHP built-in server
 
 Options:
   -p    Listen port
@@ -40,7 +40,7 @@ if (isset($options['v'])) {
     $version = $options['v'];
 }
 
-$docRoot = __DIR__."/adminer/$version";
+$docRoot = __DIR__."/src/adminer/$version";
 $script = "$docRoot/adminer-$version.php";
 
 if (!file_exists($script)) {
