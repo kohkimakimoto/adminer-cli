@@ -1,6 +1,6 @@
 # Adminer CLI
 
-Run adminer on the PHP built-in server for development
+Command line interface to run adminer on the PHP built-in server.
 
 ## Installation
 
