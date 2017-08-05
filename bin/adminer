@@ -7,17 +7,18 @@ if (PHP_SAPI !== 'cli') {
 
 error_reporting(-1);
 
-$options = getopt("hp:H:v:");
+$options = getopt("hp:H:v:t:");
 $argv = $_SERVER['argv'];
 if (isset($options['h'])) {
     echo <<<EOF
-Usage: adminer [-p port] [-H host] [-v adminer_version]
+Usage: adminer [-p port] [-H host] [-v adminer_version] [-t theme]
 
 Command line interface to run adminer on the PHP built-in server
 
 Options:
   -p    Listen port
   -H    Listen host
+  -t    Specify the theme (flat|nette|lucas-sandery|...).
   -v    Specify the adminer version.
 
 
@@ -35,18 +36,39 @@ if (isset($options['H'])) {
     $host = $options['H'];
 }
 
+$theme = null;
+if (isset($options['t'])) {
+    $theme = $options['t'];
+}
+
 $version = "4.3.1";
 if (isset($options['v'])) {
     $version = $options['v'];
 }
 
-$docRoot = __DIR__."/src/adminer/$version";
-$script = "$docRoot/adminer-$version.php";
+$rootDir = dirname(__DIR__);
+$docRoot = $rootDir;
+$adminerPath = "$rootDir/src/adminer/$version/adminer-$version.php";
+$routerScript = "$rootDir/src/router.php";
 
-if (!file_exists($script)) {
+if (!file_exists($adminerPath)) {
     echo "unsupported version: $version\n";
     exit(1);
 }
+putenv("ADMINER_PATH=".$adminerPath);
+
+if ($theme) {
+    $themePath = "$rootDir/src/designs/$theme/adminer.css";
+    if (!file_exists($themePath)) {
+        echo "unsupported theme: $theme\n";
+        exit(1);
+    }
+
+    $docRoot = dirname($themePath);
+    putenv("ADMINER_THEME_PATH=".$themePath);
+}
+
 echo "Adminer runs on http://{$host}:{$port}\n";
 
-passthru(PHP_BINARY." -d variables_order=EGPCS -S {$host}:{$port} -t{$docRoot} {$script}");
+chdir($docRoot);
+passthru(PHP_BINARY." -d variables_order=EGPCS -S {$host}:{$port} {$routerScript}");
