@@ -12,6 +12,8 @@ $ composer require --dev kohkimakimoto/adminer-cli
 
 ## Usage
 
+Run the following command.
+
 ```
 $ php vendor/bin/adminer
 ```
