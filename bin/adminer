@@ -31,7 +31,7 @@ if (isset($options['p'])) {
     $port = $options['p'];
 }
 
-$host = "localhost";
+$host = "0.0.0.0";
 if (isset($options['H'])) {
     $host = $options['H'];
 }
