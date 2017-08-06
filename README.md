@@ -18,6 +18,8 @@ $ php vendor/bin/adminer
 
 Open URL `http://localhost:8080`.
 
+![screen.png](https://raw.githubusercontent.com/kohkimakimoto/adminer-cli/master/screen.png)
+
 ## Options
 
 ```
