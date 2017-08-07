@@ -1470,7 +1470,7 @@ page_header($yh,$n="",$Wa=array(),$zh=""){global$ca,$ia,$b,$Yb,$x;page_headers()
 <script type="text/javascript" src="',h(preg_replace("~\\?.*~","",ME))."?file=functions.js&amp;version=4.3.1",'"></script>
 ';if($b->head()){echo'<link rel="shortcut icon" type="image/x-icon" href="',h(preg_replace("~\\?.*~","",ME))."?file=favicon.ico&amp;version=4.3.1",'">
 <link rel="apple-touch-icon" href="',h(preg_replace("~\\?.*~","",ME))."?file=favicon.ico&amp;version=4.3.1",'">
-';if(file_exists("adminer.css")){echo'<link rel="stylesheet" type="text/css" href="adminer.css">
+';if(getenv("ADMINER_THEME_PATH") || file_exists("adminer.css")){echo'<link rel="stylesheet" type="text/css" href="adminer.css">
 ';}}echo'
 <body class="',lang(75),' nojs" onkeydown="bodyKeydown(event);" onclick="bodyClick(event);"',(isset($_COOKIE["adminer_version"])?"":" onload=\"verifyVersion('$ia');\"");?>>
 <script type="text/javascript">

@@ -47,7 +47,6 @@ if (isset($options['v'])) {
 }
 
 $rootDir = dirname(__DIR__);
-$docRoot = $rootDir;
 $adminerPath = "$rootDir/src/adminer/$version/adminer-$version.php";
 $routerScript = "$rootDir/src/router.php";
 
@@ -63,12 +62,9 @@ if ($theme) {
         echo "unsupported theme: $theme\n";
         exit(1);
     }
-
-    $docRoot = dirname($themePath);
     putenv("ADMINER_THEME_PATH=".$themePath);
 }
 
 echo "Adminer runs on http://{$host}:{$port}\n";
 
-chdir($docRoot);
 passthru(PHP_BINARY." -d variables_order=EGPCS -S {$host}:{$port} {$routerScript}");
