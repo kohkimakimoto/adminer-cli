@@ -10,14 +10,6 @@ Command line interface to run adminer on the PHP built-in server.
 $ composer require --dev kohkimakimoto/adminer-cli
 ```
 
-### homebrew
-
-If you use homebrew, you can install adminer-cli by using homebrew.
-
-```
-$ brew install kohkimakimoto/adminer-cli/adminer-cli
-```
-
 ## Usage
 
 Run the following command.
