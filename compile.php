@@ -33,8 +33,8 @@ $phar->addFromString('bin/adminer', $content);
 $stub = <<<EOL
 #!/usr/bin/env php
 <?php
-Phar::mapPhar('adminer.phar');
-require 'phar://adminer.phar/bin/adminer';
+Phar::mapPhar('___PHAR___');
+require 'phar://___PHAR___/bin/adminer';
 __HALT_COMPILER();
 EOL;
 

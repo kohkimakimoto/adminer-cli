@@ -6,5 +6,6 @@ Thumbs.db
 /vendor
 .vscode/
 /adminer.phar
+/adminer
 
 !.gitkeep
