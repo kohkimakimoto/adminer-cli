@@ -1,0 +1,2 @@
+build:
+	php compile.php
