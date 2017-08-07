@@ -53,10 +53,6 @@ $rootDir = dirname(__DIR__);
 $adminerPath = "$rootDir/src/adminer/adminer.php";
 $routerScript = "$rootDir/src/router.php";
 
-if (!file_exists($adminerPath)) {
-    echo "unsupported version: $version\n";
-    exit(1);
-}
 putenv("ADMINER_PATH=".$adminerPath);
 
 if ($theme) {
