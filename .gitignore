@@ -8,5 +8,6 @@ Thumbs.db
 /adminer.phar
 /adminer
 /adminer.tar.gz
+/adminer.phar.tar.gz
 
 !.gitkeep
