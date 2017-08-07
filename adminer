@@ -5,7 +5,7 @@ if (PHP_SAPI !== 'cli') {
     echo 'Warning: adminer-cli should be invoked via the CLI version of PHP, not the '.PHP_SAPI.' SAPI'.PHP_EOL;
 }
 
-$cliVersion = "0.6.0";
+$cliVersion = "0.7.0";
 $adminerVersion = "4.3.1";
 
 error_reporting(-1);
