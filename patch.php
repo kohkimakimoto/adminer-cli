@@ -2,7 +2,7 @@
 <?php
 
 if ($argc === 1) {
-    echo "Usage: patch.php <adminer.php> > adminer.patched.php\n";
+    echo "Usage: patch.php adminer.php > adminer.patched.php\n\n";
     exit(1);
 }
 

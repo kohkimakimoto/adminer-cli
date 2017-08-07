@@ -5,21 +5,29 @@ if (PHP_SAPI !== 'cli') {
     echo 'Warning: adminer-cli should be invoked via the CLI version of PHP, not the '.PHP_SAPI.' SAPI'.PHP_EOL;
 }
 
+$cliVersion = "0.4.0";
+$adminerVersion = "4.3.1";
+
 error_reporting(-1);
 
-$options = getopt("hp:H:v:t:");
+$options = getopt("hp:H:v:t:T");
 $argv = $_SERVER['argv'];
 if (isset($options['h'])) {
     echo <<<EOF
 Usage: adminer [-p port] [-H host] [-v adminer_version] [-t theme]
 
-Command line interface to run adminer on the PHP built-in server
+Command line interface to run adminer on the PHP built-in server.
+Copyright (c) Kohki Makimoto <kohki.makimoto@gmail.com>
+Apache License 2.0
+
+CLI version: $cliVersion
+Adminer version: $adminerVersion
 
 Options:
-  -p    Listen port
-  -H    Listen host
+  -p    Listen port (default: 8080).
+  -H    Listen host (default: 0.0.0.0).
   -t    Specify the theme (flat|nette|lucas-sandery|...).
-  -v    Specify the adminer version.
+  -T    List supported themes.
 
 
 EOF;
@@ -41,14 +49,21 @@ if (isset($options['t'])) {
     $theme = $options['t'];
 }
 
-$version = "4.3.1";
-if (isset($options['v'])) {
-    $version = $options['v'];
+$listThemes = false;
+if (isset($options['T'])) {
+    $listThemes = true;
 }
 
 $rootDir = dirname(__DIR__);
-$adminerPath = "$rootDir/src/adminer/$version/adminer-$version.php";
+$adminerPath = "$rootDir/src/adminer/adminer.php";
 $routerScript = "$rootDir/src/router.php";
+
+if ($listThemes) {
+    foreach(glob("$rootDir/src/designs/*") as $filename) {
+        echo basename($filename)."\n";
+    }
+    exit(0);
+}
 
 if (!file_exists($adminerPath)) {
     echo "unsupported version: $version\n";
