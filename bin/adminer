@@ -49,7 +49,7 @@ if (isset($options['t'])) {
     $theme = $options['t'];
 }
 
-$rootDir = __DIR__;
+$rootDir = dirname(__DIR__);
 $adminerPath = "$rootDir/src/adminer/adminer.php";
 $routerScript = "$rootDir/src/router.php";
 
