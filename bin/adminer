@@ -27,7 +27,7 @@ Options:
   -p    Listen port (default: 8080).
   -H    Listen host (default: 0.0.0.0).
   -t    Specify the theme (flat|nette|lucas-sandery|...).
-  -T    List supported themes.
+        See https://github.com/kohkimakimoto/adminer-cli/tree/master/src/designs
 
 
 EOF;
@@ -49,21 +49,9 @@ if (isset($options['t'])) {
     $theme = $options['t'];
 }
 
-$listThemes = false;
-if (isset($options['T'])) {
-    $listThemes = true;
-}
-
 $rootDir = dirname(__DIR__);
 $adminerPath = "$rootDir/src/adminer/adminer.php";
 $routerScript = "$rootDir/src/router.php";
-
-if ($listThemes) {
-    foreach(glob("$rootDir/src/designs/*") as $filename) {
-        echo basename($filename)."\n";
-    }
-    exit(0);
-}
 
 if (!file_exists($adminerPath)) {
     echo "unsupported version: $version\n";
