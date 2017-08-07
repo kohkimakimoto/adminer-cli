@@ -7,5 +7,6 @@ Thumbs.db
 .vscode/
 /adminer.phar
 /adminer
+/adminer.tar.gz
 
 !.gitkeep
