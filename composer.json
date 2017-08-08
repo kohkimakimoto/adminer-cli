@@ -13,7 +13,7 @@
   "require": {
     "php": ">=5.4.0"
   },
-  "bin": ["bin/adminer"],
+  "bin": ["adminer"],
   "require-dev": {
     "symfony/finder": "^3.3"
   }
