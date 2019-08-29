@@ -50,6 +50,7 @@ if (isset($options['t'])) {
 }
 
 $rootDir = __DIR__;
+$docRoot = "$rootDir/src/adminer";
 $adminerPath = "$rootDir/src/adminer/adminer.php";
 $routerScript = "$rootDir/src/router.php";
 
@@ -62,8 +63,10 @@ if ($theme) {
         exit(1);
     }
     putenv("ADMINER_THEME_PATH=".$themePath);
+} else {
+    putenv("ADMINER_THEME_PATH=adminer.css");
 }
 
 echo "Adminer runs on http://{$host}:{$port}\n";
 
-passthru(PHP_BINARY." -d variables_order=EGPCS -S {$host}:{$port} {$routerScript}");
+passthru(PHP_BINARY." -d variables_order=EGPCS -S {$host}:{$port} -t {$docRoot} {$routerScript}");

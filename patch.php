@@ -9,9 +9,13 @@ if ($argc === 1) {
 $adminerPath = $argv[1];
 
 $c = file_get_contents($adminerPath);
+
+echo $c;
+exit;
+
 $cc = str_replace(
-    '(file_exists("adminer.css"))', 
-    '(getenv("ADMINER_THEME_PATH") || file_exists("adminer.css"))', 
+    '"adminer.css"',
+    'getenv("ADMINER_THEME_PATH")',
     $c,
     $count);
 

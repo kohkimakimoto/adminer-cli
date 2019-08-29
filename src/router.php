@@ -1,7 +1,11 @@
 <?php
 $srcPath = __DIR__;
-$path = getenv("ADMINER_PATH");
 $theme = getenv("ADMINER_THEME_PATH");
+
+if ($_SERVER["REQUEST_URI"] == "/") {
+    header("Location: /adminer.php");
+    exit;
+}
 
 if (preg_match('/\/adminer\.css/', $_SERVER["REQUEST_URI"]) && $theme) {
     if (file_exists($theme)) {
@@ -12,4 +16,4 @@ if (preg_match('/\/adminer\.css/', $_SERVER["REQUEST_URI"]) && $theme) {
     }
 }
 
-include_once($path);
+return false;
