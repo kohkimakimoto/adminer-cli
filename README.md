@@ -19,7 +19,7 @@ $ php vendor/bin/adminer
 # If you installed adminer-cli to the global environment, You just run `adminer`.
 ```
 
-Open URL `http://localhost:8080`.
+Open URL `http://localhost:8080/adminer.php`.
 
 ![screen.png](https://raw.githubusercontent.com/kohkimakimoto/adminer-cli/master/screen.png)
 
